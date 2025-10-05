@@ -1,0 +1,15 @@
+{
+  "name": "dvwa-devtools-lab",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "shx test -f key.pem || node gen-cert-selfsigned.js && node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "selfsigned": "^3.0.1"
+  },
+  "devDependencies": {
+    "shx": "^0.3.4"
+  }
+}
