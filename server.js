@@ -4,7 +4,8 @@ import fs from "fs";
 import https from "https";
 
 const app = express({ "x-powered-by": false });
-const port = 3443;
+const port = process.env.port|| 3443;
+
 
 const certPath = path.resolve("./cert.pem");
 const keyPath = path.resolve("./key.pem");
