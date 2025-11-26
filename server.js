@@ -4,7 +4,7 @@ import fs from "fs";
 import https from "https";
 
 const app = express({ "x-powered-by": false });
-const port = process.env.port|| 3443;
+const port = process.env.PORT|| 3443;
 
 
 const certPath = path.resolve("./cert.pem");
@@ -31,11 +31,7 @@ app.get("/api/info", (req, res) => {
   res.json({ status: "ok", ts: Date.now() });
 });
 
-const options = {
-  cert: fs.readFileSync(certPath),
-  key: fs.readFileSync(keyPath)
-};
-
-https.createServer(options, app).listen(port, () => {
-  console.log(`DVWA lab running at https://localhost:${port}. Expect a TLS warning.`);
+app.listen(port, () => {
+  console.log(`DVWA lab running on port ${port}`);
 });
+
